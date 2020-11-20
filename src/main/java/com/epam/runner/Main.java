@@ -27,6 +27,6 @@ public class Main {
         Ball ballByColor = service.getBallByColor(basket, Color.GREEN);
         service.kickBall(basket, ballByColor);
 
-        System.out.println(service.getBasketWeight(basket));
+        System.out.println(service.calculateBasketWeight(basket));
     }
 }

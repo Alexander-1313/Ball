@@ -4,26 +4,34 @@ import com.epam.entity.Ball;
 import com.epam.entity.BallType;
 import com.epam.entity.Basket;
 import com.epam.entity.Color;
-import org.testng.Assert;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.testng.Assert.*;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class BasketServiceTest {
 
     List<Ball> balls;
-    BasketService service = new BasketService();
+    BasketService service;
     Basket basket;
 
     @BeforeMethod
     public void createBalls() {
         balls = new ArrayList<Ball>();
-
         basket = new Basket(balls);
+        service = new BasketService();
+    }
+
+    @AfterMethod
+    public void deleteBalls(){
+        service = null;
+        balls = null;
+        basket = null;
     }
 
     @Test
@@ -64,7 +72,7 @@ public class BasketServiceTest {
 
         service.kickBall(basket, ball);
 
-        double actual = service.getBasketWeight(basket);
+        double actual = service.calculateBasketWeight(basket);
 
         double expected = 1;
 

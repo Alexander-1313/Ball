@@ -41,7 +41,7 @@ public class BasketService {
         return null;
     }
 
-    public double getBasketWeight(Basket basket) {
+    public double calculateBasketWeight(Basket basket) {
         double weight = 0;
 
         for (Ball ball : basket.getBalls()) {
@@ -77,10 +77,10 @@ public class BasketService {
         return null;
     }
 
-    public int getBallCount(Basket basket){
+    public int getBallCount(Basket basket) {
         int ballCount = 0;
 
-        for(Ball ball: basket.getBalls()){
+        for (Ball ball : basket.getBalls()) {
             ballCount++;
         }
 
